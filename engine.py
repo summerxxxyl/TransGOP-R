@@ -79,7 +79,7 @@ def train_one_epoch(model: torch.nn.Module, criterion: torch.nn.Module,
         with torch.cuda.amp.autocast(enabled=args.amp):
             if need_tgt_for_training:
                 # enter network #
-                flops, params = profile(model, inputs=(samples, faces, head_channels, targets, head_boxes))
+                # flops, params = profile(model, inputs=(samples, faces, head_channels, targets, head_boxes))
                 outputs, gaze_outputs, gaze_cone = model(samples, faces, head_channels, targets, head_boxes)
             else:
                 outputs, gaze_outputs, gaze_cone = model(samples, faces, head_channels)

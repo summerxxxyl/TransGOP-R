@@ -487,9 +487,10 @@ class ConvertCocoPolysToMask(object):
         # head_box = [x_min, y_min, x_max, y_max]
         try:
             head_box = [obj["head_bbox"] for obj in anno_gaze]
+            head_box = torch.as_tensor(head_box, dtype=torch.float32).reshape(4)
         except:
-            pass
-        head_box = torch.as_tensor(head_box, dtype=torch.float32).reshape(4)
+            # 如果没有head_bbox，使用默认的head box (整个图像)
+            head_box = torch.as_tensor([0, 0, w, h], dtype=torch.float32).reshape(4)
         head_box[2:] += head_box[:2]
         head_box[0::2].clamp_(min=0, max=w)
         head_box[1::2].clamp_(min=0, max=h)

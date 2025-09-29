@@ -1,0 +1,52 @@
+# 忽略datasets中的gooreal文件夹
+datasets/gooreal/
+
+# 忽略Python缓存文件
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# 忽略日志文件
+*.log
+
+# 忽略模型权重文件
+*.pth
+*.pt
+
+# 忽略IDE配置文件
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# 忽略临时文件
+.DS_Store
+Thumbs.db
+
+# 忽略安装目录
+install_MultiScaleDeformableAttention/build/
+install_MultiScaleDeformableAttention/dist/
+install_MultiScaleDeformableAttention/*.egg-info/
+
+# 忽略日志目录（但保留logs文件夹结构）
+logs/*/
+!logs/.gitkeep
